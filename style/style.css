@@ -1,0 +1,14 @@
+html {
+    font-size: 10px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/garden.jpg");
+    background-size: cover;
+}
