@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style/welcomePage.css" />
+        <title>Welcome</title>
+    </head>
+    <body>
+        <div class="welcome-container">
+            <div class="welcome-component">
+                <p>Select Game Level</p>
+                <select>
+                    <option value="Amateur" class="game-level">Amateur</option>
+                </select>
+                <p>Enter Your Name</p>
+                <input type="text" class="player-name" placeholder="Enter Your Name">
+                <a href="./game.html" class="start-button">GO</a>
+            </div>
+            <div class="welcome-component">
+                <p>Game Bird Shooting Points</p>
+                <div class="bird-container">
+                    <img src="./images/2.gif" class="bird-img">
+                    <span class="bird-score">+5 Points</span>
+                </div>
+                <div class="bird-container">
+                    <img src="./images/1.gif" class="bird-img">
+                    <span class="bird-score">+10 Points</span>
+                </div>
+                <div class="bird-container">
+                    <img src="./images/3.gif" class="bird-img">
+                    <span class="bird-score">-10 Points</span>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="./script/welcome.js"></script>
+    </body>
+</html>

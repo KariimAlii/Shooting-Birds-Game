@@ -1,0 +1,73 @@
+html {
+    font-size: 10px;
+}
+body {
+    max-height: 100vh;
+    max-width: 100vw;
+    background-color: blue;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.welcome-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/starter.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 4rem;
+}
+
+
+
+.welcome-component {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000;
+    border-radius: 30px;
+    padding: 2rem;
+    width:50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 2rem;
+    text-align: center;
+}
+.welcome-component:hover {
+    cursor: crosshair;
+}
+.welcome-component p {
+
+}
+.game-level {
+
+}
+.player-name {
+
+}
+.bird-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5rem;
+    text-align: center;
+}
+.bird-img {
+    width: 100px;
+}
+.bird-score {
+
+}

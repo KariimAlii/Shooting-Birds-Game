@@ -1,0 +1,68 @@
+html {
+    font-size: 10px;
+}
+body {
+    max-height: 100vh;
+    max-width: 100vw;
+    /* cursor: url('https://res.cloudinary.com/dvkugaw3b/image/upload/v1641562029/cursor-worm_kij6gi.png'), auto; */
+    /* cursor: url('https://cdn-icons-png.flaticon.com/512/5781/5781732.png'), auto; */
+    cursor: url('../images/cursor.png'), auto;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    z-index: 500;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header > div {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(13, 10, 10);
+    border-radius: 16px;
+    padding: 0.5rem;
+}
+header > div:hover {
+    cursor: crosshair;
+}
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/garden.jpg");
+    background-size: cover;
+    overflow: hidden;
+}
+
+.bird {
+    position: absolute;
+}
+
+.die {
+    animation: rotate 1s linear;
+}
+
+@keyframes rotate {
+    0% {
+        opacity: 1;
+        transform: rotate(0);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(720deg);
+    }
+}
+
