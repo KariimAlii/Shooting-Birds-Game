@@ -1,6 +1,7 @@
 html {
     font-size: 10px;
 }
+
 body {
     max-height: 100vh;
     max-width: 100vw;
@@ -8,11 +9,13 @@ body {
     /* cursor: url('https://cdn-icons-png.flaticon.com/512/5781/5781732.png'), auto; */
     cursor: url('../images/cursor.png'), auto;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 header {
     position: absolute;
     left: 0;
@@ -24,7 +27,8 @@ header {
     justify-content: space-around;
     align-items: center;
 }
-header > div {
+
+header>div {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -35,9 +39,11 @@ header > div {
     border-radius: 16px;
     padding: 0.5rem;
 }
-header > div:hover {
+
+header>div:hover {
     cursor: crosshair;
 }
+
 .game-container {
     position: relative;
     width: 100vw;
@@ -47,22 +53,65 @@ header > div:hover {
     overflow: hidden;
 }
 
-.bird {
+.bird,.bomb {
     position: absolute;
 }
 
 .die {
     animation: rotate 1s linear;
 }
-
+.die:hover {
+    cursor:none;
+}
 @keyframes rotate {
     0% {
         opacity: 1;
         transform: rotate(0);
     }
+
     100% {
         opacity: 0;
         transform: rotate(720deg);
     }
 }
+.popup-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    z-index: 1000;
+}
+.popup-window {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000;
+    border-radius: 30px;
+    padding: 4rem;
+    width: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 4rem;
+    text-align: center;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
 
+    width: 500px;
+    height: 800px;
+    z-index: 1100;
+
+}
+.popup-window img {
+    width:100px;
+}
+.play-again {
+    display: block;
+}

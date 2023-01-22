@@ -15,7 +15,22 @@
             <div>Birds Killed:<span class="birds-killed">0</span></div>
             <div>Last Score:<span class="last-score">0</span></div>
         </header>
-        <div class="game-container"></div>
+        <div class="game-container">
+            <div class="popup-container"  id="win-window">
+                <div class="popup-window">
+                    <p>You Win</p>
+                    <img src="./images/win.png" />
+                    <button class="play-again">Play Again</button>
+                </div>
+            </div>
+            <div class="popup-container" id="lose-window">
+                <div class="popup-window">
+                    <p>You Lose</p>
+                    <img src="./images/lose.png" />
+                    <button class="play-again">Play Again</button>
+                </div>
+            </div>
+        </div>
         <script type="module" src="./script/gameScript.js"></script>
     </body>
 </html>
