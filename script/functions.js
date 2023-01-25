@@ -1,5 +1,4 @@
-// import { Bird } from "./classes.js";
-import {playerName, lastScore } from "./variables.js";
+
 import { bombs, birds } from "./objects.js";
 import { Bird, Bomb } from "./classes.js";
 
@@ -55,8 +54,7 @@ export function startGame() {
     let index = random(0, 3);
     let bird = new Bird(birds[index], 100);
     bird.move();
-    playerName.textContent = window.localStorage.getItem("playerName");
-    lastScore.textContent = window.localStorage.getItem("lastScore");
+    
 }
 export function game() {
     document.querySelector("#start-game-window").style.display = "none";

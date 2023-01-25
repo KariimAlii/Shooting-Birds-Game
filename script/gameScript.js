@@ -1,22 +1,15 @@
 import {resetGame,game } from "./functions.js";
+import {welcomeParagraph } from "./variables.js";
 window.onload = function () {
-    
-    const playAgainButtons = document.querySelectorAll(".play-again");
-    playAgainButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            resetGame();
-        });
-    });
-    
-    const startGameBtn = document.querySelector(".start-game-btn");
-    startGameBtn.addEventListener("click" , () => {
-        game();
-    })
     
     const playerName = window.localStorage.getItem("playerName");
     const lastScore = window.localStorage.getItem("lastScore");
     const date = window.localStorage.getItem("date");
-    const welcomeParagraph = document.getElementById("welcome-paragraph");
+
+    playerName.textContent = window.localStorage.getItem("playerName");
+    lastScore.textContent = window.localStorage.getItem("lastScore");
+    
+    
     if (lastScore) {
         welcomeParagraph.innerHTML = `
         <img src="./images/welcome.png" alt="Welcome Image" class="welcome-img">
@@ -39,6 +32,18 @@ window.onload = function () {
         </p>
         `;
     }
+
+    const playAgainButtons = document.querySelectorAll(".play-again");
+    playAgainButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            resetGame();
+        });
+    });
+    
+    const startGameBtn = document.querySelector(".start-game-btn");
+    startGameBtn.addEventListener("click" , () => {
+        game();
+    })
 }
 
 
