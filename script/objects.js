@@ -23,7 +23,7 @@ export const bombs = [
 export const birds = [
     {
         src: "../images/1.gif",
-        width: 100,
+        width: 130,
         color: "black",
         score: 10,
         step:30,
