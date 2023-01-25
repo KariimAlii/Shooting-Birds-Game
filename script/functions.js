@@ -78,8 +78,17 @@ export function game() {
     }, 4000);
     timeCount();
 }
+export function setPlayerInfo() {
+    const playerName = window.localStorage.getItem("playerName");
+    const playerNameElm = document.querySelector(".player-name");
+    const lastScore = window.localStorage.getItem("lastScore");
+    const lastScoreElm = document.querySelector(".last-score");
+    playerNameElm.textContent = playerName;
+    lastScoreElm.textContent = lastScore;
+}
 export function resetGame() {
     // window.location.reload();
+    setPlayerInfo();
     game();
     document.querySelectorAll(".popup-container").forEach((window) => {
         window.style.display = "none";

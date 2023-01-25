@@ -1,15 +1,13 @@
-import { resetGame, game } from "./functions.js";
+import { resetGame, game , setPlayerInfo } from "./functions.js";
 
 window.onload = function () {
+    setPlayerInfo();
+
     const playerName = window.localStorage.getItem("playerName");
-    const playerNameElm = document.querySelector(".player-name");
     const lastScore = window.localStorage.getItem("lastScore");
-    let lastScoreElm = document.querySelector(".last-score");
     const date = window.localStorage.getItem("date");
     const welcomeParagraph = document.getElementById("welcome-paragraph");
 
-    playerNameElm.textContent = window.localStorage.getItem("playerName");
-    lastScoreElm.textContent = window.localStorage.getItem("lastScore");
 
     if (lastScore) {
         welcomeParagraph.innerHTML = `
