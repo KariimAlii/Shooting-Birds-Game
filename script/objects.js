@@ -23,19 +23,19 @@ export const bombs = [
 export const birds = [
     {
         src: "../images/1.gif",
-        width: 200,
+        width: 100,
         color: "black",
         score: 10,
     },
     {
         src: "../images/2.gif",
-        width: 300,
+        width: 200,
         color: "white",
         score: 5,
     },
     {
         src: "../images/3.gif",
-        width: 400,
+        width: 300,
         color: "cyan",
         score: -10,
     },
