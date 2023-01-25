@@ -8,6 +8,13 @@
         <title>Game</title>
     </head>
     <body>
+        <audio loop src="./music/mainmusic.mp3" class="main-music"></audio>
+        <audio src="./music/win.mp3" class="win-music"></audio>
+        <audio src="./music/lose.wav" class="lose-music"></audio>
+        <audio src="./music/whistle.wav" class="whistle"></audio>
+        <audio src="./music/bigbird.wav" class="big-bird"></audio>
+        <audio src="./music/smallexplode.wav" class="small-explode"></audio>
+        <audio src="./music/largeexplode.wav" class="large-explode"></audio>
         <header>
             <div>Welcome:<span class="player-name">Krkr</span></div>
             <div>Score:<span class="score">0</span></div>
@@ -18,16 +25,22 @@
         <div class="game-container">
             <div class="popup-container"  id="win-window">
                 <div class="popup-window">
-                    <p>You Win</p>
-                    <img src="./images/win.png" />
+                    <p>You Win😍👍</p>
+                    <img src="./images/win.png" class="bird-img"/>
                     <button class="play-again">Play Again</button>
                 </div>
             </div>
             <div class="popup-container" id="lose-window">
                 <div class="popup-window">
-                    <p>You Lose</p>
-                    <img src="./images/lose.png" />
+                    <p>You Lose😞</p>
+                    <img src="./images/lose.png" class="bird-img"/>
                     <button class="play-again">Play Again</button>
+                </div>
+            </div>
+            <div id="start-game-window">
+                <div class="popup-window">
+                    <div id="welcome-paragraph"></div>
+                    <button class="start-game-btn">Start Game</button>
                 </div>
             </div>
         </div>

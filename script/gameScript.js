@@ -1,24 +1,43 @@
-// import { Bird } from "./classes.js";
-import { createBird, moveBird, timeCount, startGame, random } from "./functions.js";
-import { gameContainer } from "./variables.js";
-import { Bomb } from "./classes.js";
-import {bombs} from "./objects.js"
-const buttons = document.querySelectorAll(".play-again");
-buttons.forEach((button) => {
+import {resetGame,game } from "./functions.js";
+
+
+const playAgainButtons = document.querySelectorAll(".play-again");
+playAgainButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        window.location.reload();
+        resetGame();
     });
 });
 
-startGame();
+const startGameBtn = document.querySelector(".start-game-btn");
+startGameBtn.addEventListener("click" , () => {
+    game();
+})
 
-setInterval(() => {
-    let bird = createBird(gameContainer);
-    moveBird(bird);
-}, 1000);
-setInterval(() => {
-    let index = random(0,2);
-    let bomb = new Bomb(bombs[index],100);
-    bomb.move();
-}, 4000);
-timeCount();
+const playerName = window.localStorage.getItem("playerName");
+const lastScore = window.localStorage.getItem("lastScore");
+const date = window.localStorage.getItem("date");
+const welcomeParagraph = document.getElementById("welcome-paragraph");
+if (lastScore) {
+    welcomeParagraph.innerHTML = `
+    <img src="./images/welcome.png" alt="Welcome Image" class="welcome-img">
+    <p class="welcome-message">
+        Welcome ${playerName}!😄<br>
+        We hope You enjoy our Game 😍<br>
+        To win you have to score 50 points or more!🤩<br>
+        Your Last Score was ${lastScore}😁<br>on ${date}👌<br>
+        Enjoy Your Game😎<br>
+    </p>
+    `;
+} else {
+    welcomeParagraph.innerHTML = `
+    <img src="./images/welcome.png" alt="Welcome Image" class="welcome-img">
+    <p class="welcome-message">
+        Welcome ${playerName}!😄<br>
+        It's Your First Time to Play Our Game!😍<br>
+        To win you have to score 50 points or more!🤩<br>
+        Enjoy Your Game😎
+    </p>
+    `;
+}
+
+

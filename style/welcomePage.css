@@ -4,7 +4,6 @@ html {
 body {
     max-height: 100vh;
     max-width: 100vw;
-    background-color: blue;
 }
 * {
     margin: 0;
@@ -49,14 +48,20 @@ body {
 .welcome-component:hover {
     cursor: crosshair;
 }
-.welcome-component p {
-
+select {
+    background-color: none;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
-.game-level {
-
-}
-.player-name {
-
+input {
+    background: none;
+    outline: none;
+    border: 2px solid #0079b9;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+    
 }
 .bird-container {
     display: flex;
@@ -68,6 +73,35 @@ body {
 .bird-img {
     width: 100px;
 }
-.bird-score {
-
+.start-button {
+    background-image: linear-gradient(to left bottom, #cfcfcf, #b6b4c3, #9b9bb7, #7e82ab, #5f6ba0, #506fa9, #3a74b2, #0079b9, #009ad1, #00bbe1, #05dbec, #5ffbf1);
+    padding: 1rem 3rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    transition: all 0.8s;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color:#000;
+}
+.start-button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -150%;
+    position: absolute;
+    background-color: #eee;
+    transform: skewX(35deg);
+    transition: all 0.8s;
+    opacity: 0.8;
+}
+.start-button:hover {
+    cursor: pointer;
+    transform: translateY(-1rem);
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.6);
+}
+.start-button:hover::before {
+    left: 200%;
 }
