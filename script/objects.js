@@ -11,7 +11,7 @@ export const bombs = [
     },
     {
         src: "../images/explode.gif",
-        width: 600,
+        width: 400,
         explosion: "range",
     },
     {

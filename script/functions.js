@@ -71,10 +71,12 @@ export function endGame(timeCounterID) {
     console.log("end!");
     if (playerScore >= 50) {
         document.querySelector("#win-window").style.display = "block";
+        document.getElementById("win-paragraph").innerHTML = `You Won with Score ${playerScore}😍👏`;
         document.querySelector('.win-music').play();
         
     } else {
         document.querySelector("#lose-window").style.display = "block";
+        document.getElementById("lose-paragraph").innerHTML = `You Lost with Score ${playerScore}😞`;
         document.querySelector('.lose-music').play();
         
     }
