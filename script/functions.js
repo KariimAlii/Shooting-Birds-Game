@@ -1,5 +1,5 @@
 // import { Bird } from "./classes.js";
-import { playerName, lastScore } from "./variables.js";
+import {playerName, lastScore } from "./variables.js";
 import { bombs, birds } from "./objects.js";
 import { Bird, Bomb } from "./classes.js";
 
@@ -47,13 +47,7 @@ export function checkBirdPosition(bird, timerID) {
     }
 }
 
-export function timeCount() {
-    let timeCounterID = setInterval(() => {
-        timeCounter--;
-        timeCounterElm.textContent = timeCounter;
-        if (timeCounter === 0) endGame(timeCounterID);
-    }, 1000);
-}
+
 
 export function startGame() {
     document.querySelector(".main-music").play();
@@ -62,6 +56,51 @@ export function startGame() {
     bird.move();
     playerName.textContent = window.localStorage.getItem("playerName");
     lastScore.textContent = window.localStorage.getItem("lastScore");
+}
+export function game() {
+    document.querySelector("#start-game-window").style.display = "none";
+    Array.from(document.querySelectorAll(".bird")).forEach((bird) => {
+        bird.remove();
+    });
+    Array.from(document.querySelectorAll(".bomb")).forEach((bomb) => {
+        bomb.remove();
+    });
+    startGame();
+
+    setInterval(() => {
+        let index = random(0, 3);
+        let bird = new Bird(birds[index], 100);
+        bird.move();
+    }, 1000);
+    setInterval(() => {
+        let index = random(0, 2);
+        let bomb = new Bomb(bombs[index], 100);
+        bomb.move();
+    }, 4000);
+    timeCount();
+}
+export function resetGame() {
+    // window.location.reload();
+    game();
+    document.querySelectorAll(".popup-container").forEach((window) => {
+        window.style.display = "none";
+    });
+    timeCounter = 60;
+    timeCounterElm.textContent = timeCounter;
+    birdsKilled = 0;
+    birdsKilledElm.textContent = birdsKilled;
+    playerScore = 0;
+    playerScoreElm.textContent = playerScore;
+    document.querySelector(".lose-music").pause();
+    document.querySelector(".win-music").pause();
+    document.querySelector(".main-music").play();
+}
+export function timeCount() {
+    let timeCounterID = setInterval(() => {
+        timeCounter--;
+        timeCounterElm.textContent = timeCounter;
+        if (timeCounter === 0) endGame(timeCounterID);
+    }, 1000);
 }
 export function endGame(timeCounterID) {
     document.querySelector(".main-music").pause();
@@ -148,41 +187,4 @@ export function explode(bombElement) {
     }
 }
 
-export function game() {
-    document.querySelector("#start-game-window").style.display = "none";
-    Array.from(document.querySelectorAll(".bird")).forEach((bird) => {
-        bird.remove();
-    });
-    Array.from(document.querySelectorAll(".bomb")).forEach((bomb) => {
-        bomb.remove();
-    });
-    startGame();
 
-    setInterval(() => {
-        let index = random(0, 3);
-        let bird = new Bird(birds[index], 100);
-        bird.move();
-    }, 1000);
-    setInterval(() => {
-        let index = random(0, 2);
-        let bomb = new Bomb(bombs[index], 100);
-        bomb.move();
-    }, 4000);
-    timeCount();
-}
-export function resetGame() {
-    // window.location.reload();
-    game();
-    document.querySelectorAll(".popup-container").forEach((window) => {
-        window.style.display = "none";
-    });
-    timeCounter = 60;
-    timeCounterElm.textContent = timeCounter;
-    birdsKilled = 0;
-    birdsKilledElm.textContent = birdsKilled;
-    playerScore = 0;
-    playerScoreElm.textContent = playerScore;
-    document.querySelector(".lose-music").pause();
-    document.querySelector(".win-music").pause();
-    document.querySelector(".main-music").play();
-}
