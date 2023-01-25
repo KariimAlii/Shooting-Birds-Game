@@ -1,7 +1,7 @@
 // import { Bird } from "./classes.js";
-import { images, gameContainer, playerName, lastScore } from "./variables.js";
-import { bombs , birds } from "./objects.js";
-import {Bird,Bomb} from "./classes.js";
+import { playerName, lastScore } from "./variables.js";
+import { bombs, birds } from "./objects.js";
+import { Bird, Bomb } from "./classes.js";
 
 let playerScore = 0;
 let playerScoreElm = document.querySelector(".score");
@@ -28,9 +28,9 @@ export function createBirdElement(inputBird) {
     });
     return birdElement;
 }
-export function birdDie (bird) {
-    if (bird.score > 0) document.querySelector('.whistle').play();
-    else document.querySelector('.big-bird').play();
+export function birdDie(bird) {
+    if (bird.score > 0) document.querySelector(".whistle").play();
+    else document.querySelector(".big-bird").play();
     playerScore += bird.score;
     playerScoreElm.textContent = playerScore;
     birdsKilled++;
@@ -47,7 +47,6 @@ export function checkBirdPosition(bird, timerID) {
     }
 }
 
-
 export function timeCount() {
     let timeCounterID = setInterval(() => {
         timeCounter--;
@@ -57,36 +56,39 @@ export function timeCount() {
 }
 
 export function startGame() {
-    document.querySelector('.main-music').play();
-    let index = random(0,3);
-    let bird = new Bird(birds[index],100);
+    document.querySelector(".main-music").play();
+    let index = random(0, 3);
+    let bird = new Bird(birds[index], 100);
     bird.move();
     playerName.textContent = window.localStorage.getItem("playerName");
     lastScore.textContent = window.localStorage.getItem("lastScore");
 }
 export function endGame(timeCounterID) {
-    document.querySelector('.main-music').pause();
+    document.querySelector(".main-music").pause();
     clearInterval(timeCounterID);
     window.localStorage.setItem("lastScore", playerScore);
     console.log("end!");
     if (playerScore >= 50) {
         document.querySelector("#win-window").style.display = "block";
-        document.getElementById("win-paragraph").innerHTML = `You Won with Score ${playerScore}😍👏`;
-        document.querySelector('.win-music').play();
-        
+        document.getElementById(
+            "win-paragraph"
+        ).innerHTML = `You Won with Score ${playerScore}😍👏`;
+        document.querySelector(".win-music").play();
     } else {
         document.querySelector("#lose-window").style.display = "block";
-        document.getElementById("lose-paragraph").innerHTML = `You Lost with Score ${playerScore}😞`;
-        document.querySelector('.lose-music').play();
-        
+        document.getElementById(
+            "lose-paragraph"
+        ).innerHTML = `You Lost with Score ${playerScore}😞`;
+        document.querySelector(".lose-music").play();
     }
 
-    const interval_id = window.setInterval(function () {},Number.MAX_SAFE_INTEGER);
+    const interval_id = window.setInterval(function () {},
+    Number.MAX_SAFE_INTEGER);
     for (let i = 1; i < interval_id; i++) {
         window.clearInterval(i);
     }
 }
-export function createBombElement (inputBomb) {
+export function createBombElement(inputBomb) {
     let bombElement = document.createElement("img");
     bombElement.src = inputBomb.src;
     bombElement.width = inputBomb.width;
@@ -100,23 +102,31 @@ export function createBombElement (inputBomb) {
     });
     return bombElement;
 }
-export function checkBombPosition(bombElement,timerID) {
-        if (parseInt(bombElement.style.top) >= window.innerHeight) {
-            bombElement.remove();
-            clearInterval(timerID);
-        }
+export function checkBombPosition(bombElement, timerID) {
+    if (parseInt(bombElement.style.top) >= window.innerHeight) {
+        bombElement.remove();
+        clearInterval(timerID);
+    }
 }
-export function explode (bombElement) {
+export function explode(bombElement) {
     if (bombElement.explosion === "range") {
-        document.querySelector('.small-explode').play();
+        document.querySelector(".small-explode").play();
         bombElement.src = bombs[2].src;
         Array.from(document.querySelectorAll(".bird"))
             .filter((bird) => {
-                let condition1 = bird.getBoundingClientRect().right > bombElement.getBoundingClientRect().right - 100;
-                let condition2 = bird.getBoundingClientRect().left < bombElement.getBoundingClientRect().left + 100;
-                let condition3 = bird.getBoundingClientRect().top < bombElement.getBoundingClientRect().top + 100;
-                let condition4 = bird.getBoundingClientRect().bottom > bombElement.getBoundingClientRect().bottom - 100;
-                return (condition1 && condition2 && condition3 && condition4);
+                let condition1 =
+                    bird.getBoundingClientRect().right >
+                    bombElement.getBoundingClientRect().right - 100;
+                let condition2 =
+                    bird.getBoundingClientRect().left <
+                    bombElement.getBoundingClientRect().left + 100;
+                let condition3 =
+                    bird.getBoundingClientRect().top <
+                    bombElement.getBoundingClientRect().top + 100;
+                let condition4 =
+                    bird.getBoundingClientRect().bottom >
+                    bombElement.getBoundingClientRect().bottom - 100;
+                return condition1 && condition2 && condition3 && condition4;
             })
             .forEach((bird) => {
                 birdDie(bird);
@@ -126,10 +136,9 @@ export function explode (bombElement) {
             bombElement.remove();
         }, 1000);
     } else {
-        
         bombElement.src = bombs[3].src;
         bombElement.width = bombs[3].width;
-        document.querySelector('.large-explode').play();
+        document.querySelector(".large-explode").play();
         document.querySelectorAll(".bird").forEach((bird) => {
             birdDie(bird);
         });
@@ -139,11 +148,14 @@ export function explode (bombElement) {
     }
 }
 
-
 export function game() {
     document.querySelector("#start-game-window").style.display = "none";
-    Array.from(document.querySelectorAll('.bird')).forEach((bird) => {bird.remove();}) 
-    Array.from(document.querySelectorAll('.bomb')).forEach((bomb) => {bomb.remove();}) 
+    Array.from(document.querySelectorAll(".bird")).forEach((bird) => {
+        bird.remove();
+    });
+    Array.from(document.querySelectorAll(".bomb")).forEach((bomb) => {
+        bomb.remove();
+    });
     startGame();
 
     setInterval(() => {
@@ -158,18 +170,19 @@ export function game() {
     }, 4000);
     timeCount();
 }
-export function resetGame () {
+export function resetGame() {
     // window.location.reload();
     game();
-    document.querySelectorAll('.popup-container').forEach((window) => {window.style.display = "none";})
+    document.querySelectorAll(".popup-container").forEach((window) => {
+        window.style.display = "none";
+    });
     timeCounter = 60;
     timeCounterElm.textContent = timeCounter;
     birdsKilled = 0;
     birdsKilledElm.textContent = birdsKilled;
     playerScore = 0;
     playerScoreElm.textContent = playerScore;
-    document.querySelector('.lose-music').pause();
-    document.querySelector('.win-music').pause();
-    document.querySelector('.main-music').curr
-    document.querySelector('.main-music').play();
+    document.querySelector(".lose-music").pause();
+    document.querySelector(".win-music").pause();
+    document.querySelector(".main-music").play();
 }
