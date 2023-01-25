@@ -26,17 +26,20 @@ export const birds = [
         width: 100,
         color: "black",
         score: 10,
+        step:30,
     },
     {
         src: "../images/2.gif",
         width: 200,
         color: "white",
         score: 5,
+        step:40,
     },
     {
         src: "../images/3.gif",
         width: 300,
         color: "cyan",
         score: -10,
+        step:20,
     },
 ];

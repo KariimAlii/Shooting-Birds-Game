@@ -20,7 +20,7 @@ export class Bird {
     }
     move() {
         let timerID = setInterval(() => {
-            this.bird.style.left = parseInt(this.bird.style.left) + 40 + "px";
+            this.bird.style.left = parseInt(this.bird.style.left) + this.bird.step + "px";
             checkBirdPosition(this.bird,timerID);
         }, 100);
     }

@@ -20,6 +20,7 @@ export function createBirdElement(inputBird) {
     birdElement.width = inputBird.width;
     birdElement.color = inputBird.color;
     birdElement.score = inputBird.score;
+    birdElement.step = inputBird.step;
     birdElement.classList.add("bird");
     birdElement.style.left = -1 * random(0, 1000) - birdElement.width + "px";
     birdElement.style.top = random(0, window.innerHeight - 300) + "px";
