@@ -1,15 +1,16 @@
-import {resetGame,game } from "./functions.js";
-import {welcomeParagraph } from "./variables.js";
-window.onload = function () {
-    
-    const playerName = window.localStorage.getItem("playerName");
-    const lastScore = window.localStorage.getItem("lastScore");
-    const date = window.localStorage.getItem("date");
+import { resetGame, game } from "./functions.js";
 
-    playerName.textContent = window.localStorage.getItem("playerName");
-    lastScore.textContent = window.localStorage.getItem("lastScore");
-    
-    
+window.onload = function () {
+    const playerName = window.localStorage.getItem("playerName");
+    const playerNameElm = document.querySelector(".player-name");
+    const lastScore = window.localStorage.getItem("lastScore");
+    let lastScoreElm = document.querySelector(".last-score");
+    const date = window.localStorage.getItem("date");
+    const welcomeParagraph = document.getElementById("welcome-paragraph");
+
+    playerNameElm.textContent = window.localStorage.getItem("playerName");
+    lastScoreElm.textContent = window.localStorage.getItem("lastScore");
+
     if (lastScore) {
         welcomeParagraph.innerHTML = `
         <img src="./images/welcome.png" alt="Welcome Image" class="welcome-img">
@@ -39,12 +40,9 @@ window.onload = function () {
             resetGame();
         });
     });
-    
+
     const startGameBtn = document.querySelector(".start-game-btn");
-    startGameBtn.addEventListener("click" , () => {
+    startGameBtn.addEventListener("click", () => {
         game();
-    })
-}
-
-
-
+    });
+};
