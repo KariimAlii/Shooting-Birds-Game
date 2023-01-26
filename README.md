@@ -1,13 +1,5 @@
 # 🔥 The Shooting Birds Game 🐦🦆
 💙 Try it Yourself [Now!!](https://shootingbirdsgame.vercel.app/) 💙
-![](./Game.mp4)
-
-
-
-
-https://user-images.githubusercontent.com/101140331/214895824-b35cc3a0-8ceb-42b1-9b49-b683faf3a049.mp4
-
-
 
 ## 🔥 Features
 
@@ -60,6 +52,9 @@ Includes Functions used for
 ✔️ Display The Welcome Popup Window , with Player's Name , Last Score & Last Visit Date and Time
 ✔️ Starts the Game When The Player is Ready
 ```
+https://user-images.githubusercontent.com/101140331/214895824-b35cc3a0-8ceb-42b1-9b49-b683faf3a049.mp4
+
+
 💙 You can view my different projects and contact me through my [Website](https://karimali.vercel.app/) 💙
 
 
