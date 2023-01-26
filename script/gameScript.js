@@ -1,4 +1,4 @@
-import { resetGame, game , setPlayerInfo } from "./functions.js";
+import { resetGame, resumeGame , setPlayerInfo } from "./functions.js";
 
 window.onload = function () {
     setPlayerInfo();
@@ -41,6 +41,6 @@ window.onload = function () {
 
     const startGameBtn = document.querySelector(".start-game-btn");
     startGameBtn.addEventListener("click", () => {
-        game();
+        resumeGame();
     });
 };

@@ -55,7 +55,7 @@ export function startGame() {
     bird.move();
     
 }
-export function game() {
+export function resumeGame() {
     document.querySelector("#start-game-window").style.display = "none";
     Array.from(document.querySelectorAll(".bird")).forEach((bird) => {
         bird.remove();
@@ -87,7 +87,7 @@ export function setPlayerInfo() {
 }
 export function resetGame() {
     setPlayerInfo();
-    game();
+    resumeGame();
     document.querySelectorAll(".popup-container").forEach((window) => {
         window.style.display = "none";
     });
