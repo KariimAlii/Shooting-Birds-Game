@@ -2,6 +2,13 @@
 💙 Try it Yourself [Now!!](https://shootingbirdsgame.vercel.app/) 💙
 ![](./Game.mp4)
 
+
+
+
+https://user-images.githubusercontent.com/101140331/214895824-b35cc3a0-8ceb-42b1-9b49-b683faf3a049.mp4
+
+
+
 ## 🔥 Features
 
 - Appling O.O.P using a Class for Birds and a Class for Bombs  ✔️
