@@ -1,5 +1,5 @@
 import { createBombElement , checkBombPosition,createBirdElement,checkBirdPosition } from "./functions.js";
-import { gameContainer } from "./variables.js";
+const gameContainer = document.querySelector(".game-container");
 
 export class Bomb {
     constructor(inputBomb) {

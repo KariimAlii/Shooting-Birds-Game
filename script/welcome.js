@@ -1,4 +1,3 @@
-
 window.onload = function () {
     const playerName = document.querySelector(".player-name");
     const startButton = document.querySelector(".start-button");

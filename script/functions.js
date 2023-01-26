@@ -1,4 +1,3 @@
-
 import { bombs, birds } from "./objects.js";
 import { Bird, Bomb } from "./classes.js";
 
@@ -87,7 +86,6 @@ export function setPlayerInfo() {
     lastScoreElm.textContent = lastScore;
 }
 export function resetGame() {
-    // window.location.reload();
     setPlayerInfo();
     game();
     document.querySelectorAll(".popup-container").forEach((window) => {
@@ -114,7 +112,6 @@ export function endGame(timeCounterID) {
     document.querySelector(".main-music").pause();
     clearInterval(timeCounterID);
     window.localStorage.setItem("lastScore", playerScore);
-    console.log("end!");
     if (playerScore >= 50) {
         document.querySelector("#win-window").style.display = "block";
         document.getElementById(
