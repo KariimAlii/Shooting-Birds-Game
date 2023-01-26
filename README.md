@@ -58,6 +58,7 @@ Includes Functions used for
 - ### The Game Page Script in (gameScript.js)
 ```
 - Display The Welcome Popup Window , with Player's Name , Last Score & Last Visit Date and Time ✔️
+- Starts the Game When The Player is Ready ✔️
 ```
 💙 You can view my different projects and contact me through my [Website](https://karimali.vercel.app/) 💙
 
