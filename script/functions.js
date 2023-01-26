@@ -160,16 +160,16 @@ export function explode(bombElement) {
             .filter((bird) => {
                 let condition1 =
                     bird.getBoundingClientRect().right >
-                    bombElement.getBoundingClientRect().right - 100;
+                    bombElement.getBoundingClientRect().right - 200;
                 let condition2 =
                     bird.getBoundingClientRect().left <
-                    bombElement.getBoundingClientRect().left + 100;
+                    bombElement.getBoundingClientRect().left + 200;
                 let condition3 =
                     bird.getBoundingClientRect().top <
-                    bombElement.getBoundingClientRect().top + 100;
+                    bombElement.getBoundingClientRect().top + 200;
                 let condition4 =
                     bird.getBoundingClientRect().bottom >
-                    bombElement.getBoundingClientRect().bottom - 100;
+                    bombElement.getBoundingClientRect().bottom - 200;
                 return condition1 && condition2 && condition3 && condition4;
             })
             .forEach((bird) => {
