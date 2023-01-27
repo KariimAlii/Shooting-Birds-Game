@@ -3,7 +3,7 @@ import { Bird, Bomb } from "./classes.js";
 
 let playerScore = 0;
 let playerScoreElm = document.querySelector(".score");
-let timeCounter = 10;
+let timeCounter = 60;
 let timeCounterElm = document.querySelector(".time-counter");
 let birdsKilled = 0;
 let birdsKilledElm = document.querySelector(".birds-killed");
@@ -45,8 +45,6 @@ export function checkBirdPosition(bird, timerID) {
         clearInterval(timerID);
     }
 }
-
-
 
 export function startGame() {
     document.querySelector(".main-music").play();
@@ -108,7 +106,7 @@ export function resetGame() {
     document.querySelectorAll(".popup-container").forEach((window) => {
         window.style.display = "none";
     });
-    timeCounter = 10;
+    timeCounter = 60;
     timeCounterElm.textContent = timeCounter;
     birdsKilled = 0;
     birdsKilledElm.textContent = birdsKilled;
