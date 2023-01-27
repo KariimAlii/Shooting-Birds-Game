@@ -3,7 +3,7 @@ import { Bird, Bomb } from "./classes.js";
 
 let playerScore = 0;
 let playerScoreElm = document.querySelector(".score");
-let timeCounter = 60;
+let timeCounter = 10;
 let timeCounterElm = document.querySelector(".time-counter");
 let birdsKilled = 0;
 let birdsKilledElm = document.querySelector(".birds-killed");
@@ -106,7 +106,7 @@ export function resetGame() {
     document.querySelectorAll(".popup-container").forEach((window) => {
         window.style.display = "none";
     });
-    timeCounter = 60;
+    timeCounter = 10;
     timeCounterElm.textContent = timeCounter;
     birdsKilled = 0;
     birdsKilledElm.textContent = birdsKilled;
@@ -133,7 +133,7 @@ function savePlayerInfo () {
     if (window.localStorage.getItem('playerInfo')) {
         const playersSaved = JSON.parse(window.localStorage.getItem('playerInfo'));
         let isFound = false;
-        for (let i = 0;i < playersSaved.length;i++) {
+        for (let i = 0;i < playersSaved.length;i++ && !isFound) {
             if (currentPlayerInfo.name === playersSaved[i].name) {
                 playersSaved[i] = currentPlayerInfo;
                 isFound = true;
