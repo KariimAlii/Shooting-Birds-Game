@@ -123,11 +123,7 @@ export function timeCount() {
         if (timeCounter === 0) endGame(timeCounterID);
     }, 1000);
 }
-export function endGame(timeCounterID) {
-    document.querySelector(".main-music").pause();
-    clearInterval(timeCounterID);
-    // window.localStorage.setItem("lastScore", playerScore);
-
+function savePlayerInfo () {
     let currentPlayerInfo = {
         name: window.localStorage.getItem('currentPlayerName'),
         date: window.localStorage.getItem('currentPlayerDate'),
@@ -150,7 +146,11 @@ export function endGame(timeCounterID) {
         playersList.push(currentPlayerInfo);
         window.localStorage.setItem("playerInfo", JSON.stringify(playersList));
     }
-
+}
+export function endGame(timeCounterID) {
+    document.querySelector(".main-music").pause();
+    clearInterval(timeCounterID);
+    savePlayerInfo();
     if (playerScore >= 50) {
         document.querySelector("#win-window").style.display = "block";
         document.getElementById(
@@ -164,9 +164,8 @@ export function endGame(timeCounterID) {
         ).innerHTML = `You Lost with Score ${playerScore}😞`;
         document.querySelector(".lose-music").play();
     }
-
-    const interval_id = window.setInterval(function () {},
-    Number.MAX_SAFE_INTEGER);
+    // Clearing All Intervals
+    const interval_id = window.setInterval(function () {},Number.MAX_SAFE_INTEGER);
     for (let i = 1; i < interval_id; i++) {
         window.clearInterval(i);
     }
