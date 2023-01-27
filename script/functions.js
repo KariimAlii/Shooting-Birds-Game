@@ -133,7 +133,7 @@ function savePlayerInfo () {
     if (window.localStorage.getItem('playerInfo')) {
         const playersSaved = JSON.parse(window.localStorage.getItem('playerInfo'));
         let isFound = false;
-        for (let i = 0;i < playersSaved.length;i++ && !isFound) {
+        for (let i = 0;i < playersSaved.length && !isFound;i++ ) {
             if (currentPlayerInfo.name === playersSaved[i].name) {
                 playersSaved[i] = currentPlayerInfo;
                 isFound = true;
