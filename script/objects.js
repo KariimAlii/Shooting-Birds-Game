@@ -43,3 +43,4 @@ export const birds = [
         step:20,
     },
 ];
+

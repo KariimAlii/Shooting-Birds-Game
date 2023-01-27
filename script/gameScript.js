@@ -1,11 +1,11 @@
-import { resetGame, resumeGame , setPlayerInfo } from "./functions.js";
+import { resetGame, resumeGame , setPlayerInfo , getPlayerInfo } from "./functions.js";
 
 window.onload = function () {
     setPlayerInfo();
-
-    const playerName = window.localStorage.getItem("playerName");
-    const lastScore = window.localStorage.getItem("lastScore");
-    const date = window.localStorage.getItem("date");
+    const currentPlayerInfo = getPlayerInfo();
+    const playerName = currentPlayerInfo.name;
+    const lastScore = currentPlayerInfo.score;
+    const date = currentPlayerInfo.date;
     const welcomeParagraph = document.getElementById("welcome-paragraph");
 
 

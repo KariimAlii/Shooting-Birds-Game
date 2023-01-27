@@ -1,8 +1,9 @@
 window.onload = function () {
     const playerName = document.querySelector(".player-name");
     const startButton = document.querySelector(".start-button");
-    startButton.addEventListener("click", () => {
-        window.localStorage.setItem("playerName", playerName.value);
+    startButton.addEventListener("click", (e) => {
+        // e.preventDefault();
+        window.localStorage.setItem("currentPlayerName", playerName.value);
         const date = new Date();
         const options = {
             weekday: "long",
@@ -12,7 +13,6 @@ window.onload = function () {
             hour: "2-digit",
             minute: "2-digit",
         };
-        window.localStorage.setItem("date", date.toLocaleString("en-US", options));
+        window.localStorage.setItem("currentPlayerDate", date.toLocaleString("en-US", options));
     });
-    
-}
+};

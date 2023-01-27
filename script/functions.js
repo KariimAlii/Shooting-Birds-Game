@@ -3,7 +3,7 @@ import { Bird, Bomb } from "./classes.js";
 
 let playerScore = 0;
 let playerScoreElm = document.querySelector(".score");
-let timeCounter = 60;
+let timeCounter = 10;
 let timeCounterElm = document.querySelector(".time-counter");
 let birdsKilled = 0;
 let birdsKilledElm = document.querySelector(".birds-killed");
@@ -77,13 +77,30 @@ export function resumeGame() {
     }, 4000);
     timeCount();
 }
+export function getPlayerInfo() {
+    const playersSaved = JSON.parse(window.localStorage.getItem('playerInfo'));
+    let currentPlayerInfo = {
+        name: window.localStorage.getItem('currentPlayerName'),
+        date: window.localStorage.getItem('currentPlayerDate'),
+        score: '',
+    };
+    if (playersSaved) {
+        const currentPlayerName = window.localStorage.getItem("currentPlayerName");
+        for (let player of playersSaved) {
+            if (currentPlayerName === player.name) {
+                currentPlayerInfo.score = player.score;
+                currentPlayerInfo.date = player.date;
+            } 
+        }
+    }
+    return currentPlayerInfo;
+}
 export function setPlayerInfo() {
-    const playerName = window.localStorage.getItem("playerName");
+    const currentPlayerInfo = getPlayerInfo();
     const playerNameElm = document.querySelector(".player-name");
-    const lastScore = window.localStorage.getItem("lastScore");
     const lastScoreElm = document.querySelector(".last-score");
-    playerNameElm.textContent = playerName;
-    lastScoreElm.textContent = lastScore;
+    playerNameElm.textContent = currentPlayerInfo.name;
+    lastScoreElm.textContent = currentPlayerInfo.score;
 }
 export function resetGame() {
     setPlayerInfo();
@@ -91,7 +108,7 @@ export function resetGame() {
     document.querySelectorAll(".popup-container").forEach((window) => {
         window.style.display = "none";
     });
-    timeCounter = 60;
+    timeCounter = 10;
     timeCounterElm.textContent = timeCounter;
     birdsKilled = 0;
     birdsKilledElm.textContent = birdsKilled;
@@ -111,7 +128,31 @@ export function timeCount() {
 export function endGame(timeCounterID) {
     document.querySelector(".main-music").pause();
     clearInterval(timeCounterID);
-    window.localStorage.setItem("lastScore", playerScore);
+    // window.localStorage.setItem("lastScore", playerScore);
+
+    let currentPlayerInfo = {
+        name: window.localStorage.getItem('currentPlayerName'),
+        date: window.localStorage.getItem('currentPlayerDate'),
+        score: playerScore,
+    };
+
+    if (window.localStorage.getItem('playerInfo')) {
+        const playersSaved = JSON.parse(window.localStorage.getItem('playerInfo'));
+        let isFound = false;
+        for (let i = 0;i < playersSaved.length;i++) {
+            if (currentPlayerInfo.name === playersSaved[i].name) {
+                playersSaved[i] = currentPlayerInfo;
+                isFound = true;
+            } 
+        }
+        if (!isFound) playersSaved.push(currentPlayerInfo);
+        window.localStorage.setItem("playerInfo", JSON.stringify(playersSaved));
+    } else {
+        let playersList = [];
+        playersList.push(currentPlayerInfo);
+        window.localStorage.setItem("playerInfo", JSON.stringify(playersList));
+    }
+
     if (playerScore >= 50) {
         document.querySelector("#win-window").style.display = "block";
         document.getElementById(
