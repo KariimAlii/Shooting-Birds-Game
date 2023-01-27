@@ -3,7 +3,7 @@ import { resetGame, resumeGame , setPlayerInfo , getPlayerInfo } from "./functio
 window.onload = function () {
     setPlayerInfo();
     const currentPlayerInfo = getPlayerInfo();
-    const playerName = currentPlayerInfo.name;
+    const playerName = currentPlayerInfo.name || 'New Visitor';
     const lastScore = currentPlayerInfo.score;
     const date = currentPlayerInfo.date;
     const welcomeParagraph = document.getElementById("welcome-paragraph");
